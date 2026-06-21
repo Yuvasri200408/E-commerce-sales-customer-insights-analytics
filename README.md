@@ -1,57 +1,172 @@
-# E-Commerce Sales & Customer Insights Dashboard
+# E-Commerce Sales & Customer Analysis
 
+## Project Overview
 
-## Overview
-Built an interactive dashboard to analyze e-commerce sales performance, track key metrics, and uncover customer behavior insights for data-driven decision making.
+This project analyzes customer, order, payment, and geographic data from an e-commerce platform to understand revenue performance, customer purchasing behavior, payment preferences, and operational efficiency.
 
+The analysis was performed using **SQL, Python (Pandas), and Power BI** to transform raw transactional data into actionable business insights.
 
-## Objectives
-- Monitor overall business performance using key KPIs  
-- Analyze monthly revenue trends  
-- Identify top-performing states  
-- Understand customer payment behavior  
+**Analysis Period:** September 2016 – October 2018
 
+---
 
-## Tools & Technologies
-- SQL  
-- Python (Pandas, NumPy)  
-- Power BI  
+## Business Questions
 
+* Which states and cities generate the highest revenue?
+* How has revenue changed over time?
+* Which payment methods are most preferred by customers?
+* Who are the highest-value customers?
+* How effective is the order fulfillment process?
 
-## Project Workflow
-1. Data Extraction using SQL  
-2. Data Cleaning & Transformation using Python (Pandas)  
-3. Data Analysis to identify trends and patterns  
-4. Dashboard creation in Power BI for visualization  
+---
 
+## Dataset Snapshot
 
-## Dashboard Features
-- KPI Metrics: Total Revenue, Total Orders, Average Order Value  
-- Monthly Revenue Trend Analysis  
-- Top 10 States by Revenue  
-- Payment Method Distribution  
-- Interactive Filters for dynamic analysis  
+### Source Datasets
 
+| Dataset   | Records |
+| --------- | ------: |
+| Customers |  99,441 |
+| Orders    |  99,441 |
+| Payments  | 103,886 |
 
-## Key Insights
-- Revenue shows a steady upward trend with periodic fluctuations, indicating consistent business growth  
-- A large share of revenue is concentrated in top-performing states, highlighting regional dependency  
-- Credit card is the dominant payment method, indicating customer preference patterns  
+### Final Analytical Dataset
 
+| Metric              |        Value |
+| ------------------- | -----------: |
+| Rows                |      103,886 |
+| Columns             |           16 |
+| Total Revenue       | 16.0 Million |
+| Average Order Value |       160.99 |
 
-## Business Recommendations
-- Expand marketing strategies in underperforming regions  
-- Encourage alternative payment methods to reduce dependency  
-- Optimize inventory planning based on observed sales trends  
+---
 
+## Data Preparation
 
-## Project Structure
-data/ sql/ python/ dashboard/
+Data was validated, cleaned, and merged across customer, order, and payment datasets to create a consolidated analytical dataset for reporting and dashboard development.
 
+Key preparation steps included:
+
+* Handling missing values and validating data quality
+* Checking duplicate records
+* Converting `order_purchase_timestamp` to datetime format
+* Merging Customers, Orders, and Payments datasets using `customer_id` and `order_id`
+* Creating a consolidated analytical dataset for analysis and dashboard reporting
+
+---
+
+## Key Findings
+
+### Revenue Performance
+
+* Total revenue generated was approximately **16.0 million**
+* Revenue increased significantly during 2017–2018
+* Monthly revenue peaked at approximately **1.2 million**
+
+### Geographic Analysis
+
+| State | Revenue |
+| ----- | ------: |
+| SP    |   5.99M |
+| RJ    |   2.14M |
+| MG    |   1.87M |
+| RS    |   0.89M |
+| PR    |   0.81M |
+
+**Insight:** São Paulo generated nearly three times more revenue than Rio de Janeiro, highlighting strong geographic concentration.
+
+### Customer Analysis
+
+* Most customers placed only one order
+* Average customer order frequency was approximately **1.03 orders**
+* Highest customer revenue contribution: **13,664.08**
+
+**Insight:** Revenue is influenced by a relatively small group of high-value customers.
+
+### Payment Preferences
+
+| Payment Method | Transactions |
+| -------------- | -----------: |
+| Credit Card    |       76,795 |
+| Boleto         |       19,784 |
+| Voucher        |        5,775 |
+| Debit Card     |        1,529 |
+
+**Insight:** Credit cards accounted for approximately **74%** of all transactions.
+
+### Operational Performance
+
+* Delivered Orders: **96,478**
+* Delivery Success Rate: **97%**
+* Cancelled Orders: **625**
+
+**Insight:** The platform maintained strong fulfillment performance with a low cancellation rate.
+
+---
 
 ## Dashboard Preview
-![Dashboard](dashboard-preview.png)
 
+The Power BI dashboard provides an interactive view of:
 
-## Conclusion
-This project demonstrates the ability to transform raw data into meaningful insights and actionable business recommendations using data analytics tools.
+* Revenue KPIs
+* Monthly Revenue Trend
+* Revenue by State
+* Revenue by City
+* Payment Method Analysis
+* Order Status Analysis
+
+![Dashboard](dashboard.png)
+
+---
+
+## Sample SQL Query
+
+```sql
+SELECT
+    c.customer_state,
+    SUM(p.payment_value) AS revenue
+FROM customers c
+JOIN orders o
+    ON c.customer_id = o.customer_id
+JOIN payments p
+    ON o.order_id = p.order_id
+GROUP BY c.customer_state
+ORDER BY revenue DESC;
+```
+
+---
+
+## Skills Demonstrated
+
+* SQL Joins & Aggregations
+* Data Cleaning & Transformation
+* Exploratory Data Analysis (EDA)
+* Revenue & Customer Analytics
+* Geographic Analysis
+* KPI Development
+* Power BI Dashboard Design
+* Business Insight Generation
+
+---
+
+## Repository Structure
+
+```text
+e-commerce-sales-dashboard/
+│
+├── README.md
+├── dashboard.png
+├── ecommerce_analysis.sql
+├── E-Commerce Dashboard.pbix
+│
+└── notebooks/
+    └── eda_start.ipynb
+```
+
+---
+
+## Business Takeaway
+
+The analysis revealed that revenue is heavily concentrated in a few major markets, particularly São Paulo, while most customers made only a single purchase. This suggests that future growth opportunities may lie in improving customer retention and increasing repeat purchases rather than relying solely on new customer acquisition.
+
+This project demonstrates an end-to-end analytics workflow using SQL, Python, and Power BI to convert raw transactional data into actionable business insights.
