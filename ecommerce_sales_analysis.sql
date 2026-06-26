@@ -1,5 +1,4 @@
 use ecommerce;
--- DATA VALIDATION
 -- Check sample data
 SELECT * FROM customers LIMIT 5;
 SELECT * FROM orders LIMIT 5;
@@ -9,6 +8,7 @@ SELECT * FROM payments LIMIT 5;
 SELECT COUNT(*) AS total_customers FROM customers;
 SELECT COUNT(*) AS total_orders FROM orders;
 SELECT COUNT(*) AS total_payments FROM payments;
+
 -- DATA INTEGRATION
 SELECT 
     c.customer_id,
@@ -23,8 +23,6 @@ JOIN orders o
 JOIN payments p 
     ON o.order_id = p.order_id
 LIMIT 10;
-
--- BUSINESS METRICS
 
 -- Total Revenue
 SELECT SUM(payment_value) AS total_revenue
