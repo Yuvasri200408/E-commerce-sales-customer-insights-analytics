@@ -1,4 +1,4 @@
-# E-Commerce Sales & Customer Analysis
+# E-commerce-sales-customer-insights-analytics
 
 ## Project Overview
 
