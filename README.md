@@ -151,18 +151,26 @@ ORDER BY revenue DESC;
 
 ---
 
+## Project Files
+
+- [README.md](README.md) — Complete project documentation, business objectives, methodology, key insights, and dashboard overview.
+- [ecommerce_dashboard_overview.png](ecommerce_dashboard_overview.png) — Executive Power BI dashboard showcasing sales KPIs, customer behavior, product performance, and geographic insights.
+- [ecommerce_sales_analysis.ipynb](ecommerce_sales_analysis.ipynb) — End-to-end Exploratory Data Analysis (EDA), data cleaning, feature engineering, business analysis, and visualizations using Python.
+- [ecommerce_sales_analysis.sql](ecommerce_sales_analysis.sql) — SQL queries for data exploration, KPI calculations, customer analysis, sales performance, and business reporting.
+- [ecommerce_sales_dashboard.pbix](ecommerce_sales_dashboard.pbix) — Interactive Power BI dashboard built for executive reporting and business decision-making.
+
+---
+
 ## Repository Structure
 
 ```text
-e-commerce-sales-dashboard/
+E-Commerce-Sales-Customer-Insights-Analytics/
 │
 ├── README.md
-├── dashboard.png
-├── ecommerce_analysis.sql
-├── E-Commerce Dashboard.pbix
-│
-└── notebooks/
-    └── eda_start.ipynb
+├── ecommerce_dashboard_overview.png
+├── ecommerce_sales_analysis.ipynb
+├── ecommerce_sales_analysis.sql
+└── ecommerce_sales_dashboard.pbix
 ```
 
 ---
