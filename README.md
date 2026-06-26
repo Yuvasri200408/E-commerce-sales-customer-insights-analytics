@@ -115,7 +115,9 @@ The Power BI dashboard provides an interactive view of:
 * Payment Method Analysis
 * Order Status Analysis
 
-![Dashboard](dashboard.png)
+<p align="center">
+  <img src="ecommerce_dashboard_overview.png" alt="E-Commerce Sales Dashboard" width="1000">
+</p>
 
 ---
 
